@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class WorkingHoursWorkers extends Model
 {
+    protected $fillable = [
+        'number_pp',
+    ];
+
     public function getMarksAttribute($extra)
     {
         return array_values(json_decode($extra, true) ?: []);

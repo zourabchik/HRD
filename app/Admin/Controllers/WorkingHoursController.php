@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\WorkingHours;
+use App\Models\WorkingHoursWorkers;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -24,7 +24,7 @@ class WorkingHoursController extends AdminController
      */
     protected function grid()
     {
-        $grid = new Grid(new WorkingHours());
+        $grid = new Grid(new WorkingHoursWorkers());
 
         $grid->column('id', __('Id'));
         $grid->column('number_pp', __('Number pp'));
@@ -32,13 +32,6 @@ class WorkingHoursController extends AdminController
         $grid->column('sex', __('Sex'));
         $grid->column('full_name', __('Full name'));
         $grid->column('position', __('Position'));
-        $grid->column('marks', __('Marks'));
-        $grid->column('total', __('Total'));
-        $grid->column('overtime', __('Overtime'));
-        $grid->column('nightly', __('Nightly'));
-        $grid->column('evening', __('Evening'));
-        $grid->column('weekend', __('Weekend'));
-        $grid->column('holiday', __('Holiday'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -53,7 +46,7 @@ class WorkingHoursController extends AdminController
      */
     protected function detail($id)
     {
-        $show = new Show(WorkingHours::findOrFail($id));
+        $show = new Show(WorkingHoursWorkers::findOrFail($id));
 
         $show->field('id', __('Id'));
         $show->field('number_pp', __('Number pp'));
@@ -61,13 +54,37 @@ class WorkingHoursController extends AdminController
         $show->field('sex', __('Sex'));
         $show->field('full_name', __('Full name'));
         $show->field('position', __('Position'));
-        $show->field('marks', __('Marks'));
-        $show->field('total', __('Total'));
-        $show->field('overtime', __('Overtime'));
-        $show->field('nightly', __('Nightly'));
-        $show->field('evening', __('Evening'));
-        $show->field('weekend', __('Weekend'));
-        $show->field('holiday', __('Holiday'));
+        $show->field('1');
+            $show->field('2');
+            $show->field('3');
+            $show->field('4');
+            $show->field('5');
+            $show->field('6');
+            $show->field('7');
+            $show->field('8');
+            $show->field('9');
+            $show->field('10');
+            $show->field('11');
+            $show->field('12');
+            $show->field('13');
+            $show->field('14');
+            $show->field('15');
+            $show->field('16');
+            $show->field('17');
+            $show->field('18');
+            $show->field('19');
+            $show->field('20');
+            $show->field('21');
+            $show->field('22');
+            $show->field('23');
+            $show->field('24');
+            $show->field('25');
+            $show->field('26');
+            $show->field('27');
+            $show->field('28');
+            $show->field('29');
+            $show->field('30');
+            $show->field('31');
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -81,18 +98,8 @@ class WorkingHoursController extends AdminController
      */
     protected function form()
     {
-        $form = new Form(new WorkingHours());
+        $form = new Form(new WorkingHoursWorkers());
 
-        $form->tab('All', function ($form) {
-            $form->number('total', __('Total'));
-            $form->number('overtime', __('Overtime'));
-            $form->number('nightly', __('Nightly'));
-            $form->number('evening', __('Evening'));
-            $form->number('weekend', __('Weekend'));
-            $form->number('holiday', __('Holiday'));
-        })->tab('Workers', function ($form) {
-
-            $form->hasMany('workers', __('New Worker') , function (Form\NestedForm $form) {
                 $form->number('number_pp', __('Number pp'));
                 $form->number('tab_number', __('Tab number'));
                 $form->select('sex', __('Sex'))
@@ -130,8 +137,6 @@ class WorkingHoursController extends AdminController
                 $form->text('29');
                 $form->text('30');
                 $form->text('31');
-            });
-        });
 
         return $form;
     }

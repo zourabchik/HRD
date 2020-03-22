@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWorkingHoursWorkersTable extends Migration
+class Rcerecre extends Migration
 {
     /**
      * Run the migrations.
@@ -13,6 +13,7 @@ class CreateWorkingHoursWorkersTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('working_hours_workers');
         Schema::create('working_hours_workers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('number_pp');
@@ -52,8 +53,6 @@ class CreateWorkingHoursWorkersTable extends Migration
             $table->string('30');
             $table->string('31');
             $table->timestamps();
-
-            $table->foreign('working_hours_id')->references('id')->on('working_hours');
         });
     }
 
@@ -64,6 +63,6 @@ class CreateWorkingHoursWorkersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('working_hours_workers');
+        //
     }
 }
